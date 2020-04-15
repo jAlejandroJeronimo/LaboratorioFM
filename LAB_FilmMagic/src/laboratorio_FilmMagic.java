@@ -12,6 +12,7 @@ public class laboratorio_FilmMagic extends javax.swing.JFrame {
 private MantenimientoCliente nuevaVentana;
 private MantenimientoArticulo nuevaVentana2;
 private MantenimientoArticulo2 nuevaVentana3;
+//private procesos nuevaVentana4;
     /**
      * Creates new form laboratorio_FilmMagic
      */
