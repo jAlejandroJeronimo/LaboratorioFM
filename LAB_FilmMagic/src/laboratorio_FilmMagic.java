@@ -91,7 +91,7 @@ private MantenimientoArticulo2 nuevaVentana3;
         jMenu2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
         jMenuItem2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jMenuItem2.setText("6. Clientes derecho a bono");
+        jMenuItem2.setText("6. Rentas de clientes derecho a bono");
         jMenu2.add(jMenuItem2);
 
         jMenuBar1.add(jMenu2);

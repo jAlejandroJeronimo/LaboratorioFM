@@ -1,3 +1,10 @@
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import javax.swing.JOptionPane;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -26,13 +33,13 @@ public class MantenimientoArticulo extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        txt_correo = new javax.swing.JTextField();
-        txt_edad = new javax.swing.JTextField();
-        txt_direccion = new javax.swing.JTextField();
+        txt_añopeli = new javax.swing.JTextField();
+        txt_directorpeli = new javax.swing.JTextField();
+        txt_clasificacionpeli = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
-        txt_membresia = new javax.swing.JTextField();
+        txt_disponibilidadpeli = new javax.swing.JTextField();
         jButton3 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
@@ -40,40 +47,66 @@ public class MantenimientoArticulo extends javax.swing.JInternalFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        txt_nombres = new javax.swing.JTextField();
-        txt_apellidos = new javax.swing.JTextField();
+        txt_nombrepeli = new javax.swing.JTextField();
+        txt_generopeli = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
+        txt_codigopeli = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        txt_idiomapeli = new javax.swing.JTextField();
+        label_status = new javax.swing.JLabel();
+        jButton5 = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
         setVisible(true);
 
-        txt_correo.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        txt_añopeli.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
-        txt_edad.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        txt_directorpeli.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
-        txt_direccion.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        txt_clasificacionpeli.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton1.setText("REGISTRAR");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         jLabel1.setText("Peliculas, DVD'S ");
 
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton2.setText("MODIFICAR");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
-        txt_membresia.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        txt_disponibilidadpeli.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
         jButton3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton3.setText("ELIMINAR");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel2.setText("Nombre de la película:");
 
         jButton4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton4.setText("BUSCAR");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel7.setText("Director:");
@@ -87,96 +120,257 @@ public class MantenimientoArticulo extends javax.swing.JInternalFrame {
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel6.setText("Disponibilidad:");
 
-        txt_nombres.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        txt_nombrepeli.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
-        txt_apellidos.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        txt_generopeli.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel3.setText("Género:");
+
+        txt_codigopeli.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel8.setText("Código de película o DVD:");
+
+        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel9.setText("Idioma disponible:");
+
+        txt_idiomapeli.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+
+        label_status.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        label_status.setForeground(new java.awt.Color(255, 0, 0));
+        label_status.setText("...");
+
+        jButton5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButton5.setText("NUEVO REGISTRO");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGap(29, 29, 29)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txt_añopeli)
+                            .addComponent(txt_generopeli)
+                            .addComponent(txt_nombrepeli, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txt_directorpeli, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton4))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(1, 1, 1)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txt_disponibilidadpeli, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(txt_clasificacionpeli, javax.swing.GroupLayout.DEFAULT_SIZE, 172, Short.MAX_VALUE)
+                                .addComponent(txt_idiomapeli)))))
+                .addGap(20, 20, 20))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(117, 117, 117)
+                        .addContainerGap()
+                        .addComponent(jLabel8)
+                        .addGap(27, 27, 27)
+                        .addComponent(txt_codigopeli, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(194, 194, 194)
+                        .addComponent(label_status))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(148, 148, 148)
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING))
-                                .addGap(29, 29, 29)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(1, 1, 1)
-                                        .addComponent(txt_membresia, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(txt_direccion, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                .addComponent(txt_correo)
-                                                .addComponent(txt_apellidos)
-                                                .addComponent(txt_nombres)
-                                                .addComponent(txt_edad, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jButton4))))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(61, 61, 61)
-                                .addComponent(jButton1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton2)
-                                .addGap(18, 18, 18)
-                                .addComponent(jButton3)))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton2)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton5)))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jLabel1)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(txt_codigopeli, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(txt_nombres, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_nombrepeli, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(txt_apellidos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txt_generopeli, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(txt_edad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txt_directorpeli, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(txt_correo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txt_añopeli, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(txt_direccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txt_clasificacionpeli, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(txt_idiomapeli, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(txt_membresia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(txt_disponibilidadpeli, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(23, 23, 23)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2)
-                    .addComponent(jButton3))
-                .addContainerGap(77, Short.MAX_VALUE))
+                    .addComponent(jButton3)
+                    .addComponent(jButton5))
+                .addGap(18, 18, 18)
+                .addComponent(label_status)
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        //Codigo que permite insertar registros en al base de datos
+        try{
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3307/labfilmmagic", "root", "");//conecta a MYSQL
+            PreparedStatement pst = cn.prepareStatement("insert into mantenimientospeliculas values(?,?,?,?,?,?,?,?)");
+
+            pst.setString(1, "0");
+            pst.setString(2, txt_nombrepeli.getText().trim());
+            pst.setString(3, txt_generopeli.getText().trim());
+            pst.setString(4, txt_directorpeli.getText().trim()); 
+            pst.setString(5, txt_añopeli.getText().trim()); 
+            pst.setString(6, txt_clasificacionpeli.getText().trim()); 
+            pst.setString(7, txt_idiomapeli.getText().trim()); 
+            pst.setString(8, txt_disponibilidadpeli.getText().trim());
+            pst.executeUpdate();
+
+            txt_nombrepeli.setText("");
+            txt_generopeli.setText("");
+            txt_directorpeli.setText("");
+            txt_añopeli.setText("");
+            txt_clasificacionpeli.setText("");
+            txt_idiomapeli.setText("");
+            txt_disponibilidadpeli.setText("");
+            label_status.setText("Película registrada con exito");
+        }catch (Exception e){
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        //Codigo que permite actualizar registros en la base de datos
+        try {
+            String Codigo = txt_codigopeli.getText().trim();
+
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3307/labfilmmagic", "root", "");
+            PreparedStatement pst = cn.prepareStatement("update mantenimientospeliculas set NombrePelicula = ?, Genero = ?, Director = ?, Año = ?, Clasificacion = ?, Idioma = ?, Disponibilidad = ? where CodPelicula = " + Codigo);
+
+            pst.setString(1, txt_nombrepeli.getText().trim());
+            //pst.setString(1, "0");
+            //pst.setString(1, txt_codigopeli.getText().trim());
+            pst.setString(2, txt_generopeli.getText().trim());
+            pst.setString(3, txt_directorpeli.getText().trim()); 
+            pst.setString(4, txt_añopeli.getText().trim()); 
+            pst.setString(5, txt_clasificacionpeli.getText().trim()); 
+            pst.setString(6, txt_idiomapeli.getText().trim()); 
+            pst.setString(7, txt_disponibilidadpeli.getText().trim());
+            pst.executeUpdate();
+
+            label_status.setText("Modificación exitosa");
+
+        } catch (Exception e) {
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        //Codigo que permite borrar registros en la base de datos
+        try {
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3307/labfilmmagic", "root", "");
+            PreparedStatement pst = cn.prepareStatement("delete from mantenimientospeliculas where NombrePelicula = ?");
+
+            pst.setString(1, txt_nombrepeli.getText().trim());
+            pst.executeUpdate();
+
+            txt_codigopeli.setText("");
+            txt_nombrepeli.setText("");
+            txt_generopeli.setText("");
+            txt_directorpeli.setText("");
+            txt_añopeli.setText("");
+            txt_clasificacionpeli.setText("");
+            txt_idiomapeli.setText("");
+            txt_disponibilidadpeli.setText("");
+            label_status.setText("Película eliminado");
+
+        } catch (Exception e) {
+        }
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        //Codigo que permite consultar registros en la base de datos
+        try{
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3307/labfilmmagic", "root", "");
+            PreparedStatement pst = cn.prepareStatement("select * from mantenimientospeliculas where NombrePelicula = ?");
+            pst.setString(1, txt_nombrepeli.getText().trim());
+            
+            ResultSet rs = pst.executeQuery();
+
+            if(rs.next()){
+            
+                txt_codigopeli.setText(rs.getString("CodPelicula"));
+                txt_generopeli.setText(rs.getString("Genero"));
+                txt_directorpeli.setText(rs.getString("Director"));
+                txt_añopeli.setText(rs.getString("Año"));
+                txt_clasificacionpeli.setText(rs.getString("Clasificacion"));
+                txt_idiomapeli.setText(rs.getString("Idioma"));
+                txt_disponibilidadpeli.setText(rs.getString("Disponibilidad"));
+                
+            } else {
+                JOptionPane.showMessageDialog(null, "Película NO registrada");
+            }
+
+        }catch (Exception e){
+
+        }
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        txt_codigopeli.setText("");
+        txt_nombrepeli.setText("");
+        txt_generopeli.setText("");
+        txt_directorpeli.setText("");
+        txt_añopeli.setText("");
+        txt_clasificacionpeli.setText("");
+        txt_idiomapeli.setText("");
+        txt_disponibilidadpeli.setText("");
+        label_status.setText("...");
+    }//GEN-LAST:event_jButton5ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -184,6 +378,7 @@ public class MantenimientoArticulo extends javax.swing.JInternalFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -191,11 +386,16 @@ public class MantenimientoArticulo extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JTextField txt_apellidos;
-    private javax.swing.JTextField txt_correo;
-    private javax.swing.JTextField txt_direccion;
-    private javax.swing.JTextField txt_edad;
-    private javax.swing.JTextField txt_membresia;
-    private javax.swing.JTextField txt_nombres;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel label_status;
+    private javax.swing.JTextField txt_añopeli;
+    private javax.swing.JTextField txt_clasificacionpeli;
+    private javax.swing.JTextField txt_codigopeli;
+    private javax.swing.JTextField txt_directorpeli;
+    private javax.swing.JTextField txt_disponibilidadpeli;
+    private javax.swing.JTextField txt_generopeli;
+    private javax.swing.JTextField txt_idiomapeli;
+    private javax.swing.JTextField txt_nombrepeli;
     // End of variables declaration//GEN-END:variables
 }

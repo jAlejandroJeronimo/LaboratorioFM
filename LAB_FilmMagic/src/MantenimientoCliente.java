@@ -1,3 +1,10 @@
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import javax.swing.JOptionPane;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -34,9 +41,9 @@ public class MantenimientoCliente extends javax.swing.JInternalFrame {
         txt_direccion = new javax.swing.JTextField();
         txt_membresia = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        txt_nombres1 = new javax.swing.JTextField();
+        txt_codigo = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        txt_direccion1 = new javax.swing.JTextField();
+        txt_telefono = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         txt_edad = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
@@ -48,8 +55,12 @@ public class MantenimientoCliente extends javax.swing.JInternalFrame {
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        txt_edad1 = new javax.swing.JTextField();
+        txt_dpi = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        txt_numeromembresia = new javax.swing.JTextField();
+        label_status = new javax.swing.JLabel();
+        jButton5 = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -74,12 +85,12 @@ public class MantenimientoCliente extends javax.swing.JInternalFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel2.setText("Nombres:");
 
-        txt_nombres1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        txt_codigo.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel7.setText("Edad:");
 
-        txt_direccion1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        txt_telefono.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel3.setText("Apellidos:");
@@ -88,15 +99,35 @@ public class MantenimientoCliente extends javax.swing.JInternalFrame {
 
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton1.setText("REGISTRAR");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton2.setText("MODIFICAR");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton3.setText("ELIMINAR");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jButton4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton4.setText("BUSCAR");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel4.setText("Dirección:");
@@ -113,49 +144,59 @@ public class MantenimientoCliente extends javax.swing.JInternalFrame {
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel8.setText("Número telefónico:");
 
-        txt_edad1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        txt_dpi.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel6.setText("Tipo de membresía:");
+
+        jLabel11.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel11.setText("Número de membresía:");
+
+        txt_numeromembresia.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+
+        label_status.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        label_status.setForeground(new java.awt.Color(255, 0, 0));
+        label_status.setText("...");
+
+        jButton5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButton5.setText("NUEVO REGISTRO");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING))
                     .addComponent(jLabel9)
-                    .addComponent(jLabel7)
-                    .addComponent(jLabel10))
-                .addGap(29, 29, 29)
+                    .addComponent(jLabel10)
+                    .addComponent(jLabel7))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(txt_edad, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txt_apellidos)
-                        .addComponent(txt_nombres)
-                        .addComponent(txt_edad1, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(txt_nombres1, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton4)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton2)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton3)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(txt_codigo, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jButton4))
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(txt_edad, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txt_apellidos)
+                                .addComponent(txt_nombres)
+                                .addComponent(txt_dpi, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 81, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel6)
-                                .addGap(30, 30, 30)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(txt_membresia, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel4)
@@ -169,8 +210,30 @@ public class MantenimientoCliente extends javax.swing.JInternalFrame {
                                 .addGroup(jPanel1Layout.createSequentialGroup()
                                     .addComponent(jLabel8)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(txt_direccion1, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(19, 19, 19))))
+                                    .addComponent(txt_telefono, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel11)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txt_numeromembresia, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addGap(121, 121, 121)
+                                .addComponent(jButton2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jButton3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jButton5))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(jButton1)
+                                .addGap(411, 411, 411)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(257, 257, 257)
+                .addComponent(label_status)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -180,7 +243,7 @@ public class MantenimientoCliente extends javax.swing.JInternalFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel9)
-                            .addComponent(txt_nombres1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txt_codigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButton4))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -196,7 +259,7 @@ public class MantenimientoCliente extends javax.swing.JInternalFrame {
                             .addComponent(txt_edad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txt_edad1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txt_dpi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel10)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -205,7 +268,7 @@ public class MantenimientoCliente extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel8)
-                            .addComponent(txt_direccion1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txt_telefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4)
@@ -214,12 +277,19 @@ public class MantenimientoCliente extends javax.swing.JInternalFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel6)
                             .addComponent(txt_membresia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton1)
-                            .addComponent(jButton2)
-                            .addComponent(jButton3))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jLabel11)
+                            .addComponent(txt_numeromembresia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(jButton2)
+                    .addComponent(jButton3)
+                    .addComponent(jButton5))
+                .addGap(18, 18, 18)
+                .addComponent(label_status)
+                .addGap(24, 24, 24))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -241,11 +311,137 @@ public class MantenimientoCliente extends javax.swing.JInternalFrame {
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(69, Short.MAX_VALUE))
+                .addContainerGap(71, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        //Codigo que permite insertar registros en al base de datos
+        try{
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3307/labfilmmagic", "root", "");//conecta a MYSQL
+            PreparedStatement pst = cn.prepareStatement("insert into mantclientes values(?,?,?,?,?,?,?,?,?,?)");
+
+            pst.setString(1, "0");
+            pst.setString(2, txt_nombres.getText().trim());
+            pst.setString(3, txt_apellidos.getText().trim());
+            pst.setString(4, txt_edad.getText().trim()); 
+            pst.setString(5, txt_dpi.getText().trim()); 
+            pst.setString(6, txt_correo.getText().trim()); 
+            pst.setString(7, txt_telefono.getText().trim()); 
+            pst.setString(8, txt_direccion.getText().trim()); 
+            pst.setString(9, txt_membresia.getText().trim()); 
+            pst.setString(10, txt_numeromembresia.getText().trim()); 
+            pst.executeUpdate();
+
+            txt_nombres.setText("");
+            txt_apellidos.setText("");
+            txt_edad.setText("");
+            txt_dpi.setText("");
+            txt_correo.setText("");
+            txt_telefono.setText("");
+            txt_direccion.setText("");
+            txt_membresia.setText("");
+            txt_numeromembresia.setText("");
+            label_status.setText("Registro exitoso");
+        }catch (Exception e){
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        //Codigo que permite actualizar registros en la base de datos
+        try {
+            String Codigo = txt_codigo.getText().trim();
+
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3307/labfilmmagic", "root", "");
+            PreparedStatement pst = cn.prepareStatement("update mantclientes set Nombres = ?, Apellidos = ?, Edad = ?, DPI = ?, CorreoElectronico = ?, NumeroTelefonico = ?, Direccion = ?, Membresia = ?, CodMembresia = ? where Codigo = " + Codigo);
+
+            pst.setString(1, txt_nombres.getText().trim());
+            pst.setString(2, txt_apellidos.getText().trim());
+            pst.setString(3, txt_edad.getText().trim()); 
+            pst.setString(4, txt_dpi.getText().trim()); 
+            pst.setString(5, txt_correo.getText().trim()); 
+            pst.setString(6, txt_telefono.getText().trim()); 
+            pst.setString(7, txt_direccion.getText().trim()); 
+            pst.setString(8, txt_membresia.getText().trim()); 
+            pst.setString(9, txt_numeromembresia.getText().trim()); 
+            pst.executeUpdate();
+
+            label_status.setText("Modificación exitosa");
+
+        } catch (Exception e) {
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        //Codigo que permite borrar registros en la base de datos
+        try {
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3307/labfilmmagic", "root", "");
+            PreparedStatement pst = cn.prepareStatement("delete from mantclientes where Codigo = ?");
+
+            pst.setString(1, txt_codigo.getText().trim());
+            pst.executeUpdate();
+
+            txt_codigo.setText("");
+            txt_nombres.setText("");
+            txt_apellidos.setText("");
+            txt_edad.setText("");
+            txt_dpi.setText("");
+            txt_correo.setText("");
+            txt_telefono.setText("");
+            txt_direccion.setText("");
+            txt_membresia.setText("");
+            txt_numeromembresia.setText("");
+            label_status.setText("Registro eliminado.");
+
+        } catch (Exception e) {
+        }
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        //Codigo que permite consultar registros en la base de datos
+        try{
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3307/labfilmmagic", "root", "");
+            PreparedStatement pst = cn.prepareStatement("select * from mantclientes where Codigo = ?");
+            pst.setString(1, txt_codigo.getText().trim());
+            
+            ResultSet rs = pst.executeQuery();
+
+            if(rs.next()){
+            
+                txt_nombres.setText(rs.getString("Nombres"));
+                txt_apellidos.setText(rs.getString("Apellidos"));
+                txt_edad.setText(rs.getString("Edad"));
+                txt_dpi.setText(rs.getString("DPI"));
+                txt_correo.setText(rs.getString("CorreoElectronico"));
+                txt_telefono.setText(rs.getString("NumeroTelefonico"));
+                txt_direccion.setText(rs.getString("Direccion"));
+                txt_membresia.setText(rs.getString("Membresia"));
+                txt_numeromembresia.setText(rs.getString("CodMembresia"));
+                
+            } else {
+                JOptionPane.showMessageDialog(null, "Persona no registrada");
+            }
+
+        }catch (Exception e){
+
+        }
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+            txt_codigo.setText("");
+            txt_nombres.setText("");
+            txt_apellidos.setText("");
+            txt_edad.setText("");
+            txt_dpi.setText("");
+            txt_correo.setText("");
+            txt_telefono.setText("");
+            txt_direccion.setText("");
+            txt_membresia.setText("");
+            txt_numeromembresia.setText("");
+            label_status.setText("...");
+    }//GEN-LAST:event_jButton5ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -253,8 +449,10 @@ public class MantenimientoCliente extends javax.swing.JInternalFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -264,14 +462,16 @@ public class MantenimientoCliente extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel label_status;
     private javax.swing.JTextField txt_apellidos;
+    private javax.swing.JTextField txt_codigo;
     private javax.swing.JTextField txt_correo;
     private javax.swing.JTextField txt_direccion;
-    private javax.swing.JTextField txt_direccion1;
+    private javax.swing.JTextField txt_dpi;
     private javax.swing.JTextField txt_edad;
-    private javax.swing.JTextField txt_edad1;
     private javax.swing.JTextField txt_membresia;
     private javax.swing.JTextField txt_nombres;
-    private javax.swing.JTextField txt_nombres1;
+    private javax.swing.JTextField txt_numeromembresia;
+    private javax.swing.JTextField txt_telefono;
     // End of variables declaration//GEN-END:variables
 }

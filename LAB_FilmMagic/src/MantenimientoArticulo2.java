@@ -1,3 +1,10 @@
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import javax.swing.JOptionPane;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -24,190 +31,369 @@ public class MantenimientoArticulo2 extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        txt_nombres = new javax.swing.JTextField();
+        txt_nombrevid = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        txt_apellidos = new javax.swing.JTextField();
+        txt_generovid = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
-        txt_membresia = new javax.swing.JTextField();
+        txt_consolavid = new javax.swing.JTextField();
         jButton3 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
-        txt_correo = new javax.swing.JTextField();
+        txt_idiomavid = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        txt_edad = new javax.swing.JTextField();
+        txt_desarrolladorvid = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        txt_direccion = new javax.swing.JTextField();
+        txt_versionvid = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
-        txt_membresia1 = new javax.swing.JTextField();
-        txt_direccion1 = new javax.swing.JTextField();
+        txt_disponibilidadvid = new javax.swing.JTextField();
+        txt_modosvid = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
+        txt_codigovid = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
+        label_status = new javax.swing.JLabel();
+        jButton5 = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
         setVisible(true);
 
-        txt_nombres.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        txt_nombrevid.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         jLabel1.setText("Videojuegos");
 
-        txt_apellidos.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        txt_generovid.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton2.setText("MODIFICAR");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel3.setText("Género:");
 
-        txt_membresia.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        txt_consolavid.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
         jButton3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton3.setText("ELIMINAR");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel2.setText("Nombre del videojuego:");
 
         jButton4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton4.setText("BUSCAR");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel7.setText("Desarrollador:");
 
-        txt_correo.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        txt_idiomavid.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel4.setText("Versión:");
 
-        txt_edad.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        txt_desarrolladorvid.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel5.setText("Idioma:");
 
-        txt_direccion.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        txt_versionvid.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel6.setText("Disponible para consola:");
 
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton1.setText("REGISTRAR");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel8.setText("Disponibilidad:");
 
-        txt_membresia1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        txt_disponibilidadvid.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
-        txt_direccion1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        txt_modosvid.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel9.setText("Modos de juego:");
+
+        txt_codigovid.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+
+        jLabel10.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel10.setText("Código del videojuego:");
+
+        label_status.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        label_status.setForeground(new java.awt.Color(255, 0, 0));
+        label_status.setText("...");
+
+        jButton5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButton5.setText("NUEVO REGISTRO");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(150, 150, 150))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jLabel8)
-                                    .addGap(30, 30, 30)
-                                    .addComponent(txt_membresia1, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jLabel6)
-                                    .addGap(30, 30, 30)
-                                    .addComponent(txt_membresia, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(77, 77, 77)
-                                .addComponent(jButton1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton2)
-                                .addGap(18, 18, 18)
-                                .addComponent(jButton3))))
+                        .addGap(206, 206, 206)
+                        .addComponent(label_status))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING))
-                                .addGap(29, 29, 29)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(txt_direccion, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(txt_correo)
-                                        .addComponent(txt_apellidos)
-                                        .addComponent(txt_nombres)
-                                        .addComponent(txt_edad, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel9)
-                                .addGap(29, 29, 29)
-                                .addComponent(txt_direccion1, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap()
+                        .addComponent(jButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton2)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton4)))
+                        .addComponent(jButton3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton5)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jLabel8)
+                            .addGap(30, 30, 30)
+                            .addComponent(txt_disponibilidadvid, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jLabel6)
+                            .addGap(30, 30, 30)
+                            .addComponent(txt_consolavid, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(4, 4, 4)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING))
+                                        .addGap(29, 29, 29)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(txt_versionvid, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                .addComponent(txt_idiomavid)
+                                                .addComponent(txt_generovid)
+                                                .addComponent(txt_nombrevid)
+                                                .addComponent(txt_desarrolladorvid, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(txt_codigovid, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel9)
+                                        .addGap(29, 29, 29)
+                                        .addComponent(txt_modosvid, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(11, 11, 11)
+                                .addComponent(jLabel10)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton4))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(145, 145, 145)
+                        .addComponent(jLabel1)))
+                .addGap(27, 27, 27))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel10)
+                    .addComponent(txt_codigovid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(txt_nombres, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_nombrevid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(txt_apellidos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txt_generovid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(txt_edad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txt_desarrolladorvid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(txt_correo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txt_idiomavid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(txt_direccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txt_versionvid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
-                    .addComponent(txt_direccion1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txt_modosvid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(txt_membresia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txt_consolavid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
-                    .addComponent(txt_membresia1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txt_disponibilidadvid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2)
-                    .addComponent(jButton3))
-                .addContainerGap(74, Short.MAX_VALUE))
+                    .addComponent(jButton3)
+                    .addComponent(jButton5))
+                .addGap(26, 26, 26)
+                .addComponent(label_status)
+                .addContainerGap(27, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+         //Codigo que permite insertar registros en al base de datos
+        try{
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3307/labfilmmagic", "root", "");//conecta a MYSQL
+            PreparedStatement pst = cn.prepareStatement("insert into mantenimientovideojuegos values(?,?,?,?,?,?,?,?,?)");
+
+            pst.setString(1, "0");
+            pst.setString(2, txt_nombrevid.getText().trim());
+            pst.setString(3, txt_generovid.getText().trim());
+            pst.setString(4, txt_desarrolladorvid.getText().trim()); 
+            pst.setString(5, txt_idiomavid.getText().trim()); 
+            pst.setString(6, txt_versionvid.getText().trim()); 
+            pst.setString(7, txt_modosvid.getText().trim()); 
+            pst.setString(8, txt_consolavid.getText().trim());
+            pst.setString(9, txt_disponibilidadvid.getText().trim());
+            pst.executeUpdate();
+
+            txt_nombrevid.setText("");
+            txt_generovid.setText("");
+            txt_desarrolladorvid.setText("");
+            txt_idiomavid.setText("");
+            txt_versionvid.setText("");
+            txt_modosvid.setText("");
+            txt_consolavid.setText("");
+            txt_disponibilidadvid.setText("");
+            label_status.setText("Videojuego registrado con exito");
+        }catch (Exception e){
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        //Codigo que permite actualizar registros en la base de datos
+        try {
+            String Codigo = txt_codigovid.getText().trim();
+
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3307/labfilmmagic", "root", "");
+            PreparedStatement pst = cn.prepareStatement("update mantenimientovideojuegos set NombreVideojuego = ?, Genero = ?, Desarrollador = ?, Idioma = ?, Version = ?, ModoDeJuego = ?, Consola = ?, Disponibilidad = ? where CodVideojuego = " + Codigo);
+
+            pst.setString(1, txt_nombrevid.getText().trim());
+            pst.setString(2, txt_generovid.getText().trim());
+            pst.setString(3, txt_desarrolladorvid.getText().trim()); 
+            pst.setString(4, txt_idiomavid.getText().trim()); 
+            pst.setString(5, txt_versionvid.getText().trim()); 
+            pst.setString(6, txt_modosvid.getText().trim()); 
+            pst.setString(7, txt_consolavid.getText().trim());
+            pst.setString(8, txt_disponibilidadvid.getText().trim());
+            pst.executeUpdate();
+
+            label_status.setText("Modificación exitosa");
+
+        } catch (Exception e) {
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        //Codigo que permite borrar registros en la base de datos
+        try {
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3307/labfilmmagic", "root", "");
+            PreparedStatement pst = cn.prepareStatement("delete from mantenimientovideojuegos where NombreVideojuego = ?");
+
+            pst.setString(1, txt_nombrevid.getText().trim());
+            pst.executeUpdate();
+
+            txt_codigovid.setText("");
+            txt_nombrevid.setText("");
+            txt_generovid.setText("");
+            txt_desarrolladorvid.setText("");
+            txt_idiomavid.setText("");
+            txt_versionvid.setText("");
+            txt_modosvid.setText("");
+            txt_consolavid.setText("");
+            txt_disponibilidadvid.setText("");
+            label_status.setText("Videojuego eliminado");
+
+        } catch (Exception e) {
+        }
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        //Codigo que permite consultar registros en la base de datos
+        try{
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3307/labfilmmagic", "root", "");
+            PreparedStatement pst = cn.prepareStatement("select * from mantenimientovideojuegos where NombreVideojuego = ?");
+            pst.setString(1, txt_nombrevid.getText().trim());
+            
+            ResultSet rs = pst.executeQuery();
+
+            if(rs.next()){
+            
+                txt_codigovid.setText(rs.getString("CodVideojuego"));
+                txt_generovid.setText(rs.getString("Genero"));
+                txt_desarrolladorvid.setText(rs.getString("Desarrollador"));
+                txt_idiomavid.setText(rs.getString("Idioma"));
+                txt_versionvid.setText(rs.getString("Version"));
+                txt_modosvid.setText(rs.getString("ModoDeJuego"));
+                txt_consolavid.setText(rs.getString("Consola"));
+                txt_disponibilidadvid.setText(rs.getString("Disponibilidad"));
+                
+            } else {
+                JOptionPane.showMessageDialog(null, "Videojuego NO registrado");
+            }
+
+        }catch (Exception e){
+
+        }
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        txt_codigovid.setText("");
+        txt_nombrevid.setText("");
+        txt_generovid.setText("");
+        txt_desarrolladorvid.setText("");
+        txt_idiomavid.setText("");
+        txt_versionvid.setText("");
+        txt_modosvid.setText("");
+        txt_consolavid.setText("");
+        txt_disponibilidadvid.setText("");
+        label_status.setText("...");
+    }//GEN-LAST:event_jButton5ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -215,7 +401,9 @@ public class MantenimientoArticulo2 extends javax.swing.JInternalFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -224,14 +412,16 @@ public class MantenimientoArticulo2 extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JTextField txt_apellidos;
-    private javax.swing.JTextField txt_correo;
-    private javax.swing.JTextField txt_direccion;
-    private javax.swing.JTextField txt_direccion1;
-    private javax.swing.JTextField txt_edad;
-    private javax.swing.JTextField txt_membresia;
-    private javax.swing.JTextField txt_membresia1;
-    private javax.swing.JTextField txt_nombres;
+    private javax.swing.JLabel label_status;
+    private javax.swing.JTextField txt_codigovid;
+    private javax.swing.JTextField txt_consolavid;
+    private javax.swing.JTextField txt_desarrolladorvid;
+    private javax.swing.JTextField txt_disponibilidadvid;
+    private javax.swing.JTextField txt_generovid;
+    private javax.swing.JTextField txt_idiomavid;
+    private javax.swing.JTextField txt_modosvid;
+    private javax.swing.JTextField txt_nombrevid;
+    private javax.swing.JTextField txt_versionvid;
     // End of variables declaration//GEN-END:variables
 
 }
