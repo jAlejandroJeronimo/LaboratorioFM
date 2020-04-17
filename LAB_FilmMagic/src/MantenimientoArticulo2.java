@@ -56,6 +56,9 @@ public class MantenimientoArticulo2 extends javax.swing.JInternalFrame {
         jLabel10 = new javax.swing.JLabel();
         label_status = new javax.swing.JLabel();
         jButton5 = new javax.swing.JButton();
+        jLabel11 = new javax.swing.JLabel();
+        txt_costo = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
 
         setClosable(true);
         setIconifiable(true);
@@ -154,37 +157,33 @@ public class MantenimientoArticulo2 extends javax.swing.JInternalFrame {
             }
         });
 
+        jLabel11.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel11.setText("Costo de renta:");
+
+        txt_costo.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+
+        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logo.png"))); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(206, 206, 206)
-                        .addComponent(label_status))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton2)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton5)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addGroup(layout.createSequentialGroup()
-                            .addComponent(jLabel8)
-                            .addGap(30, 30, 30)
-                            .addComponent(txt_disponibilidadvid, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
                             .addComponent(jLabel6)
                             .addGap(30, 30, 30)
-                            .addComponent(txt_consolavid, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txt_consolavid, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jLabel8)
+                                .addComponent(jLabel11))
+                            .addGap(30, 30, 30)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txt_costo, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txt_disponibilidadvid, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -219,6 +218,22 @@ public class MantenimientoArticulo2 extends javax.swing.JInternalFrame {
                         .addGap(145, 145, 145)
                         .addComponent(jLabel1)))
                 .addGap(27, 27, 27))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(80, 80, 80)
+                .addComponent(label_status)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel12)
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton2)
+                .addGap(18, 18, 18)
+                .addComponent(jButton3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton5)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -261,15 +276,24 @@ public class MantenimientoArticulo2 extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
                     .addComponent(txt_disponibilidadvid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel11)
+                    .addComponent(txt_costo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2)
                     .addComponent(jButton3)
                     .addComponent(jButton5))
-                .addGap(26, 26, 26)
-                .addComponent(label_status)
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(label_status)
+                        .addGap(43, 43, 43))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel12)
+                        .addContainerGap())))
         );
 
         pack();
@@ -279,7 +303,7 @@ public class MantenimientoArticulo2 extends javax.swing.JInternalFrame {
          //Codigo que permite insertar registros en al base de datos
         try{
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3307/labfilmmagic", "root", "");//conecta a MYSQL
-            PreparedStatement pst = cn.prepareStatement("insert into mantenimientovideojuegos values(?,?,?,?,?,?,?,?,?)");
+            PreparedStatement pst = cn.prepareStatement("insert into mantvideojuegos values(?,?,?,?,?,?,?,?,?,?)");
 
             pst.setString(1, "0");
             pst.setString(2, txt_nombrevid.getText().trim());
@@ -290,6 +314,7 @@ public class MantenimientoArticulo2 extends javax.swing.JInternalFrame {
             pst.setString(7, txt_modosvid.getText().trim()); 
             pst.setString(8, txt_consolavid.getText().trim());
             pst.setString(9, txt_disponibilidadvid.getText().trim());
+            pst.setString(10, txt_costo.getText().trim());
             pst.executeUpdate();
 
             txt_nombrevid.setText("");
@@ -300,6 +325,7 @@ public class MantenimientoArticulo2 extends javax.swing.JInternalFrame {
             txt_modosvid.setText("");
             txt_consolavid.setText("");
             txt_disponibilidadvid.setText("");
+            txt_costo.setText("");
             label_status.setText("Videojuego registrado con exito");
         }catch (Exception e){
         }
@@ -311,7 +337,7 @@ public class MantenimientoArticulo2 extends javax.swing.JInternalFrame {
             String Codigo = txt_codigovid.getText().trim();
 
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3307/labfilmmagic", "root", "");
-            PreparedStatement pst = cn.prepareStatement("update mantenimientovideojuegos set NombreVideojuego = ?, Genero = ?, Desarrollador = ?, Idioma = ?, Version = ?, ModoDeJuego = ?, Consola = ?, Disponibilidad = ? where CodVideojuego = " + Codigo);
+            PreparedStatement pst = cn.prepareStatement("update mantvideojuegos set NombreVideojuego = ?, Genero = ?, Desarrollador = ?, Idioma = ?, Version = ?, ModoDeJuego = ?, Consola = ?, Disponibilidad = ?, Costo = ? where CodVideojuego = " + Codigo);
 
             pst.setString(1, txt_nombrevid.getText().trim());
             pst.setString(2, txt_generovid.getText().trim());
@@ -321,6 +347,7 @@ public class MantenimientoArticulo2 extends javax.swing.JInternalFrame {
             pst.setString(6, txt_modosvid.getText().trim()); 
             pst.setString(7, txt_consolavid.getText().trim());
             pst.setString(8, txt_disponibilidadvid.getText().trim());
+            pst.setString(9, txt_costo.getText().trim());
             pst.executeUpdate();
 
             label_status.setText("Modificación exitosa");
@@ -333,7 +360,7 @@ public class MantenimientoArticulo2 extends javax.swing.JInternalFrame {
         //Codigo que permite borrar registros en la base de datos
         try {
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3307/labfilmmagic", "root", "");
-            PreparedStatement pst = cn.prepareStatement("delete from mantenimientovideojuegos where NombreVideojuego = ?");
+            PreparedStatement pst = cn.prepareStatement("delete from mantvideojuegos where NombreVideojuego = ?");
 
             pst.setString(1, txt_nombrevid.getText().trim());
             pst.executeUpdate();
@@ -347,6 +374,7 @@ public class MantenimientoArticulo2 extends javax.swing.JInternalFrame {
             txt_modosvid.setText("");
             txt_consolavid.setText("");
             txt_disponibilidadvid.setText("");
+            txt_costo.setText("");
             label_status.setText("Videojuego eliminado");
 
         } catch (Exception e) {
@@ -357,7 +385,7 @@ public class MantenimientoArticulo2 extends javax.swing.JInternalFrame {
         //Codigo que permite consultar registros en la base de datos
         try{
             Connection cn = DriverManager.getConnection("jdbc:mysql://localhost:3307/labfilmmagic", "root", "");
-            PreparedStatement pst = cn.prepareStatement("select * from mantenimientovideojuegos where NombreVideojuego = ?");
+            PreparedStatement pst = cn.prepareStatement("select * from mantvideojuegos where NombreVideojuego = ?");
             pst.setString(1, txt_nombrevid.getText().trim());
             
             ResultSet rs = pst.executeQuery();
@@ -372,6 +400,7 @@ public class MantenimientoArticulo2 extends javax.swing.JInternalFrame {
                 txt_modosvid.setText(rs.getString("ModoDeJuego"));
                 txt_consolavid.setText(rs.getString("Consola"));
                 txt_disponibilidadvid.setText(rs.getString("Disponibilidad"));
+                txt_costo.setText(rs.getString("Costo"));
                 
             } else {
                 JOptionPane.showMessageDialog(null, "Videojuego NO registrado");
@@ -392,6 +421,7 @@ public class MantenimientoArticulo2 extends javax.swing.JInternalFrame {
         txt_modosvid.setText("");
         txt_consolavid.setText("");
         txt_disponibilidadvid.setText("");
+        txt_costo.setText("");
         label_status.setText("...");
     }//GEN-LAST:event_jButton5ActionPerformed
 
@@ -404,6 +434,8 @@ public class MantenimientoArticulo2 extends javax.swing.JInternalFrame {
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -415,6 +447,7 @@ public class MantenimientoArticulo2 extends javax.swing.JInternalFrame {
     private javax.swing.JLabel label_status;
     private javax.swing.JTextField txt_codigovid;
     private javax.swing.JTextField txt_consolavid;
+    private javax.swing.JTextField txt_costo;
     private javax.swing.JTextField txt_desarrolladorvid;
     private javax.swing.JTextField txt_disponibilidadvid;
     private javax.swing.JTextField txt_generovid;

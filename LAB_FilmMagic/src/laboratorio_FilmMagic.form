@@ -67,6 +67,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="6. Rentas de clientes derecho a bono"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem2ActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>

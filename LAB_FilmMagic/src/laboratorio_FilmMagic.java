@@ -12,6 +12,7 @@ public class laboratorio_FilmMagic extends javax.swing.JFrame {
 private MantenimientoCliente nuevaVentana;
 private MantenimientoArticulo nuevaVentana2;
 private MantenimientoArticulo2 nuevaVentana3;
+
 //private procesos nuevaVentana4;
     /**
      * Creates new form laboratorio_FilmMagic
@@ -92,6 +93,11 @@ private MantenimientoArticulo2 nuevaVentana3;
 
         jMenuItem2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jMenuItem2.setText("6. Rentas de clientes derecho a bono");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItem2);
 
         jMenuBar1.add(jMenu2);
@@ -148,6 +154,11 @@ private MantenimientoArticulo2 nuevaVentana3;
         nuevaVentana3=new MantenimientoArticulo2();
         jDesktopPane1.add(nuevaVentana3);
     }//GEN-LAST:event_jMenuItem6ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        // TODO add your handling code here:
+       
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     /**
      * @param args the command line arguments

@@ -16,7 +16,7 @@ create table mantclientes
 )engine=innodb DEFAULT CHARSET=latin1;
 
 use labfilmmagic;
-create table mantenimientospeliculas
+create table mantpeliculas
 (
 	CodPelicula int(25) auto_increment primary key,
 	NombrePelicula varchar(100) not null,
@@ -25,11 +25,12 @@ create table mantenimientospeliculas
     Año varchar(10) not null,
     Clasificacion varchar(15) not null,
     Idioma varchar(30) not null,
-    Disponibilidad varchar(30) not null
+    Disponibilidad varchar(30) not null,
+    Costo varchar(20) not null
 )engine=innodb DEFAULT CHARSET=latin1;
 
 use labfilmmagic;
-create table mantenimientovideojuegos
+create table mantvideojuegos
 (
 	CodVideojuego int(25) auto_increment primary key,
 	NombreVideojuego varchar(100) not null,
@@ -39,7 +40,8 @@ create table mantenimientovideojuegos
     Version varchar(15) not null,
     ModoDeJuego varchar(60) not null,
     Consola varchar(50) not null,
-    Disponibilidad varchar(30) not null
+    Disponibilidad varchar(30) not null,
+    Costo varchar(20) not null
 )engine=innodb DEFAULT CHARSET=latin1;
 
 use labfilmmagic;
