@@ -12,7 +12,7 @@ public class laboratorio_FilmMagic extends javax.swing.JFrame {
 private MantenimientoCliente nuevaVentana;
 private MantenimientoArticulo nuevaVentana2;
 private MantenimientoArticulo2 nuevaVentana3;
-
+private Proceso nuevaVentana4;
 //private procesos nuevaVentana4;
     /**
      * Creates new form laboratorio_FilmMagic
@@ -157,7 +157,8 @@ private MantenimientoArticulo2 nuevaVentana3;
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         // TODO add your handling code here:
-       
+        nuevaVentana4=new Proceso();
+        jDesktopPane1.add(nuevaVentana4);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     /**
