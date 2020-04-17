@@ -348,7 +348,7 @@ public class MantenimientoCliente extends javax.swing.JInternalFrame {
             txt_direccion.setText("");
             txt_membresia.setText("");
             txt_numeromembresia.setText("");
-            label_status.setText("Registro exitoso");
+            label_status.setText("Cliente registrado con exitoso");
         }catch (Exception e){
         }
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -372,7 +372,7 @@ public class MantenimientoCliente extends javax.swing.JInternalFrame {
             pst.setString(9, txt_numeromembresia.getText().trim()); 
             pst.executeUpdate();
 
-            label_status.setText("Modificación exitosa");
+            label_status.setText("Cliente modificado con éxito");
 
         } catch (Exception e) {
         }
@@ -397,7 +397,7 @@ public class MantenimientoCliente extends javax.swing.JInternalFrame {
             txt_direccion.setText("");
             txt_membresia.setText("");
             txt_numeromembresia.setText("");
-            label_status.setText("Registro eliminado.");
+            label_status.setText("Cliente eliminado");
 
         } catch (Exception e) {
         }
@@ -425,7 +425,7 @@ public class MantenimientoCliente extends javax.swing.JInternalFrame {
                 txt_numeromembresia.setText(rs.getString("CodMembresia"));
                 
             } else {
-                JOptionPane.showMessageDialog(null, "Persona no registrada");
+                JOptionPane.showMessageDialog(null, "Cliente no registrado");
             }
 
         }catch (Exception e){
